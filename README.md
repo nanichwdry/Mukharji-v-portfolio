@@ -18,6 +18,6 @@ WoW-inspired portfolio website with AI-powered assistant (Pixel-V).
 Deploy to Vercel for instant hosting!
 
 ## Contact
-- Email: mvajje@gmail.com
+- Email: mukharjiv@outlook.com
 - Phone: +1 412-932-0039
 - LinkedIn: [mukharji-v](https://linkedin.com/in/mukharji-v)

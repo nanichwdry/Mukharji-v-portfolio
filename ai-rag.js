@@ -4,7 +4,7 @@ const portfolioKnowledge = {
         name: "Mukharji V",
         title: "UI Developer",
         education: "Masters in Information Technology from American College of Commerce and Technology",
-        email: "mvajje@gmail.com",
+        email: "mukharjiv@outlook.com",
         phone: "+1 412-932-0039",
         linkedin: "https://linkedin.com/in/mukharji-v",
         yearsExperience: "9+"
