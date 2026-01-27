@@ -16,6 +16,15 @@ const portfolioKnowledge = {
         { name: "AI and Career Empowerment", provider: "University of Maryland" },
         { name: "Cryptocurrency Banking", provider: "Alison" }
     ],
+    projects: [
+        {
+            name: "HireSync AI",
+            url: "https://hiresync-ai-m7v1.vercel.app/",
+            description: "AI-Powered Career Command Center. A production-ready web application that automates job searching, resume tailoring, and application tracking using Google's Gemini AI. Features real-time job discovery with search grounding, ATS-optimized resume generation, Gmail integration for recruiter emails, and an AI career assistant chatbot.",
+            techStack: "React 19, TypeScript, Vite, Tailwind CSS, Google Gemini 2.0 Flash, Vercel Serverless Functions, Gmail API, Google OAuth 2.0",
+            features: "Automated Job Scout (scans LinkedIn, Indeed, Glassdoor every 10 minutes), ATS Resume Tailoring with match scoring, Application CRM tracking, Gmail Scanner for recruiter emails, Chottu AI Chatbot for career assistance, Real-time job search with source verification"
+        }
+    ],
     experience: [
         {
             role: "Senior UI Developer (AI Focus)",
@@ -89,12 +98,18 @@ class PortfolioRAGAgent {
         }
 
         // Contact queries
-        if (lowerQuery.match(/contact|email|reach|linkedin|connect|phone|call|number/)) {
+        if (lowerQuery.match(/contact|email|reach|linkedin|connect|phone|call|number|github|git/)) {
             context.push({
                 email: this.knowledge.personal.email,
                 phone: this.knowledge.personal.phone,
-                linkedin: this.knowledge.personal.linkedin
+                linkedin: this.knowledge.personal.linkedin,
+                github: "https://github.com/nanichwdry"
             });
+        }
+
+        // Project queries
+        if (lowerQuery.match(/project|hiresync|live|application|app|portfolio|work|built|created/)) {
+            context.push(...this.knowledge.projects);
         }
 
         // Personal info queries
@@ -158,9 +173,15 @@ class PortfolioRAGAgent {
             return response;
         }
 
+        // Projects
+        if (lowerQuery.match(/project|hiresync|live|application|app|built|created/)) {
+            const project = this.knowledge.projects[0];
+            return `Check out ${project.name}! 🚀\n\n${project.description}\n\nTech Stack: ${project.techStack}\n\nKey Features:\n${project.features}\n\nLive Demo: ${project.url}`;
+        }
+
         // Contact
         if (lowerQuery.match(/contact|email|reach|connect/)) {
-            return `You can reach Mukharji at:\n📧 Email: ${this.knowledge.personal.email}\n📱 Phone: ${this.knowledge.personal.phone}\n💼 LinkedIn: ${this.knowledge.personal.linkedin}`;
+            return `You can reach Mukharji at:\n📧 Email: ${this.knowledge.personal.email}\n📱 Phone: ${this.knowledge.personal.phone}\n💼 LinkedIn: ${this.knowledge.personal.linkedin}\n💻 GitHub: https://github.com/nanichwdry`;
         }
 
         // Who are you / About
