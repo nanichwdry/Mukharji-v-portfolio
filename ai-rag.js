@@ -23,6 +23,13 @@ const portfolioKnowledge = {
             description: "AI-Powered Career Command Center. A production-ready web application that automates job searching, resume tailoring, and application tracking using Google's Gemini AI. Features real-time job discovery with search grounding, ATS-optimized resume generation, Gmail integration for recruiter emails, and an AI career assistant chatbot.",
             techStack: "React 19, TypeScript, Vite, Tailwind CSS, Google Gemini 2.0 Flash, Vercel Serverless Functions, Gmail API, Google OAuth 2.0",
             features: "Automated Job Scout (scans LinkedIn, Indeed, Glassdoor every 10 minutes), ATS Resume Tailoring with match scoring, Application CRM tracking, Gmail Scanner for recruiter emails, Chottu AI Chatbot for career assistance, Real-time job search with source verification"
+        },
+        {
+            name: "MediSchedule",
+            url: "https://medi-schedule-black.vercel.app",
+            description: "Healthcare appointment scheduling and management system.",
+            techStack: "React, TypeScript, Vercel",
+            features: "Patient appointment booking, schedule management, healthcare workflow optimization"
         }
     ],
     experience: [
@@ -174,9 +181,12 @@ class PortfolioRAGAgent {
         }
 
         // Projects
-        if (lowerQuery.match(/project|hiresync|live|application|app|built|created/)) {
-            const project = this.knowledge.projects[0];
-            return `Check out ${project.name}! 🚀\n\n${project.description}\n\nTech Stack: ${project.techStack}\n\nKey Features:\n${project.features}\n\nLive Demo: ${project.url}`;
+        if (lowerQuery.match(/project|hiresync|live|application|app|built|created|medischedule|medi/)) {
+            let response = "Mukharji has built several impressive projects:\n\n";
+            this.knowledge.projects.forEach(project => {
+                response += `🚀 ${project.name}\n${project.description}\n🔗 ${project.url}\n\n`;
+            });
+            return response;
         }
 
         // Contact
