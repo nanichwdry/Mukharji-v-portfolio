@@ -18,11 +18,11 @@ const portfolioKnowledge = {
     ],
     projects: [
         {
-            name: "HireSync AI",
-            url: "https://hiresync-ai-m7v1.vercel.app/",
-            description: "AI-Powered Career Command Center. A production-ready web application that automates job searching, resume tailoring, and application tracking using Google's Gemini AI. Features real-time job discovery with search grounding, ATS-optimized resume generation, Gmail integration for recruiter emails, and an AI career assistant chatbot.",
-            techStack: "React 19, TypeScript, Vite, Tailwind CSS, Google Gemini 2.0 Flash, Vercel Serverless Functions, Gmail API, Google OAuth 2.0",
-            features: "Automated Job Scout (scans LinkedIn, Indeed, Glassdoor every 10 minutes), ATS Resume Tailoring with match scoring, Application CRM tracking, Gmail Scanner for recruiter emails, Chottu AI Chatbot for career assistance, Real-time job search with source verification"
+            name: "Aura AI Assistant",
+            url: "https://aura-ai-assistant-nine.vercel.app/",
+            description: "AI-powered virtual assistant application.",
+            techStack: "React, TypeScript, AI Integration, Vercel",
+            features: "Intelligent conversational AI, task automation, personalized assistance"
         },
         {
             name: "MediSchedule",
